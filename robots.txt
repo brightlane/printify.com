@@ -1,0 +1,16 @@
+# robots.txt for https://brightlane.github.io/printify.com/
+
+# Allow all robots complete access
+User-agent: *
+Disallow:
+
+# Block a specific crawler
+User-agent: Googlebot
+Disallow: /private/
+
+# Allow a specific crawler access to certain pages
+User-agent: Bingbot
+Disallow: /no-bing/
+
+# Sitemap location
+Sitemap: https://brightlane.github.io/printify.com/sitemap.xml

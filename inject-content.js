@@ -1,7 +1,8 @@
 // inject-content.js
 
 window.addEventListener("DOMContentLoaded", function() {
-    // Injecting Social Media Posts
+
+    // 1. Injecting Social Media Posts
     const socialMediaPostHTML = `
         <div class="post">
             <h2>Instagram Post</h2>
@@ -20,11 +21,12 @@ window.addEventListener("DOMContentLoaded", function() {
             <p>#PrintOnDemand #SideHustle #MerchBusiness #Printify #Entrepreneur</p>
         </div>
     `;
-    const container = document.createElement('div');
-    container.innerHTML = socialMediaPostHTML;
-    document.body.appendChild(container); // Appends to the body or a specific element.
 
-    // Injecting Email Capture Form
+    const socialPostContainer = document.createElement('div');
+    socialPostContainer.innerHTML = socialMediaPostHTML;
+    document.body.appendChild(socialPostContainer);  // Appends to the body of the page
+
+    // 2. Injecting Email Capture Form
     const emailCaptureFormHTML = `
         <div class="email-capture-form">
             <h2>Get Your Free Guide: How to Start a Print-On-Demand Business</h2>
@@ -37,9 +39,9 @@ window.addEventListener("DOMContentLoaded", function() {
     `;
     const emailFormContainer = document.createElement('div');
     emailFormContainer.innerHTML = emailCaptureFormHTML;
-    document.body.appendChild(emailFormContainer); // Appends to the body or a specific element.
+    document.body.appendChild(emailFormContainer); // Appends to the body
 
-    // Injecting Exit-Intent Popup
+    // 3. Injecting Exit-Intent Popup
     const exitIntentPopupHTML = `
         <div class="popup" id="exit-popup">
             <div class="popup-content">
@@ -53,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function() {
     exitPopupContainer.innerHTML = exitIntentPopupHTML;
     document.body.appendChild(exitPopupContainer);
 
-    // Injecting Social Proof Section
+    // 4. Injecting Social Proof Section
     const socialProofHTML = `
         <div class="post">
             <h2>Live Activity</h2>
@@ -66,7 +68,7 @@ window.addEventListener("DOMContentLoaded", function() {
     socialProofContainer.innerHTML = socialProofHTML;
     document.body.appendChild(socialProofContainer);
 
-    // Injecting A/B Testing Script
+    // 5. A/B Testing
     const abTestScript = `
         <script>
             const testGroup = Math.random() < 0.5 ? 'A' : 'B';
@@ -89,7 +91,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 const email = document.getElementById('email').value;
                 if (email) {
                     alert('Thank you for subscribing! Check your inbox for the guide.');
-                    document.getElementById('email').value = '';
+                    document.getElementById('email').value = '';  // Clear the input field
                 }
             });
         </script>
@@ -97,4 +99,5 @@ window.addEventListener("DOMContentLoaded", function() {
     const scriptContainer = document.createElement('div');
     scriptContainer.innerHTML = abTestScript;
     document.body.appendChild(scriptContainer);
+
 });

@@ -1,0 +1,51 @@
+name: AI Daily Pulse & Global Promoter
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day to maintain "Freshness" signals for AI agents
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'vulture_gen.py'
+      - 'ai-manifest.md'
+  workflow_dispatch: # Allows you to run this manually for testing
+
+jobs:
+  refresh-and-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push updated HTML pages back to the repo
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Vulture 10K Engine
+        run: |
+          # This script regenerates all pages with updated JSON-LD and AI citations
+          python vulture_gen.py 
+
+      - name: Commit Fresh AI Content
+        run: |
+          git config --global user.name "AI-Promoter-Bot"
+          git config --global user.email "bot@brightlane.io"
+          git add .
+          # Only push if changes were made to the generated files
+          git diff --quiet && git diff --staged --quiet || (git commit -m "AI Freshness Sync: $(date +'%Y-%m-%d')" && git push)
+
+      - name: Ping AI Scrapers (IndexNow)
+        run: |
+          # IndexNow notifies Bing, Perplexity partners, and other AI-centric engines 
+          # that your manifest and 10k pages are ready for citation.
+          # Replace 'YOUR_KEY' with your Bing Webmaster Key if you have one.
+          curl -X GET "https://www.bing.com/indexnow?url=https://brightlane.github.io/MothersDayFlowers/sitemap.xml&key=YOUR_KEY"
+
+      - name: Log Status
+        run: echo "Daily AI Pulse Completed Successfully."

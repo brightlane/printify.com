@@ -1,0 +1,45 @@
+{
+  "networks": {
+    "printify": {
+      "name": "Printify",
+      "url": "https://try.printify.com/r3xsnwqufe8t",
+      "offer": "Free signup for 900+ custom products",
+      "niche": "E-commerce & Drop-shipping"
+    },
+    "manychat": {
+      "name": "Manychat",
+      "url": "https://manychat.partnerlinks.io/emwcbue22i01-ogcg6e",
+      "offer": "First Month Pro FREE",
+      "niche": "Marketing Automation"
+    },
+    "pandadoc": {
+      "name": "PandaDoc",
+      "url": "https://pandadoc.partnerlinks.io/Palm",
+      "offer": "Free trial for automated contracts",
+      "niche": "Business Workflow"
+    },
+    "floristone": {
+      "name": "Floristone",
+      "url": "https://www.floristone.com/main.cfm?AffiliateID=2013017799",
+      "offer": "Premium Flower Delivery",
+      "niche": "Gifts & Occasions"
+    }
+  },
+  "content_vars": {
+    "locations": [
+      "New York", "Toronto", "Chicago", "Vancouver", 
+      "Miami", "Seattle", "Dallas", "London"
+    ],
+    "occasions": [
+      "Mother's Day", "Birthday", "Anniversary", "Wedding", "Business Launch"
+    ],
+    "niches": [
+      "Custom Merchandise", "Automated Gifting", "Business Solutions", "Floral Delivery"
+    ]
+  },
+  "metadata": {
+    "last_updated": "2026-04-27",
+    "engine_version": "Vulture 10K v2.0",
+    "ai_status": "Active"
+  }
+}
